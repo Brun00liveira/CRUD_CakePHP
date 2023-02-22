@@ -42,10 +42,10 @@ class ClientesController extends AppController
     public function view($id = null)
     {
 
-        $cliente = $this->Cliezntes->get($id, [
+        $cliente = $this->Clientes->get($id, [
             'contain' => ['Profissoes'],
         ]);
-
+        
         $this->set('post', $cliente);
     }
 

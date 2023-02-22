@@ -11,11 +11,11 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
+            <tr> 
                 <th scope="row"><?php echo $post->id?></th>
                 <td><?php echo $post->nome?></td>
                 <td><?php echo $post->data_de_nascimento?></td>
-                <td><?php echo $post->profissao?></td>
+                <td><?php echo $post->profisso->profissao?></td>
             </tr>    
         </table> 
                  
