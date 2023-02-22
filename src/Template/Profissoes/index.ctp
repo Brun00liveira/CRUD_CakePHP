@@ -1,0 +1,59 @@
+<style>
+    .link a{
+        color:white;
+    }
+    a{
+        padding: 1px 5px;
+        color: #ffc107;
+    }
+</style>
+<section>
+    <div class="container mt-4">
+        <div class="format-control">
+        <?php echo $this->Html->link('Nova profissão',['action'=>'add'], ['class'=> 'btn btn-warning color-dark mb-2']);?>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr class="link">
+                        <th scope="col">id></th>
+
+                        <th scope="col">Profissão</th>
+                        <th scope="col">Ver</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Deletar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php foreach($profissoes as $profissao):?>
+                    <tr>
+                        <th scope="row"><?php echo $profissao->id?></th>
+                        <td><?php echo $profissao->profissao?></td>
+    
+                        
+                        <td>
+                            <?php echo $this->html->link('Ver', ['action'=>'view', $profissao->id], ['class' =>'btn btn-info color-dark']);?>
+                        </td>
+                        <td>
+                            <?php echo $this->html->link('Editar', ['action'=>'edit', $profissao->id], ['class' =>'btn btn-success color-dark']);?>
+                        </td>
+                        <td>
+                            <?php echo $this->Form->postLink('Deletar', ['action'=>'delete', $profissao->id], ['class' =>'btn btn-danger color-dark']);?>
+                        </td>
+                    </tr>
+                <?php endforeach;?>
+                </tbody>
+            </table>
+            <div class="paginator ">
+                <ul class="pagination d-flex justify-content-center">
+                    
+                    <?php echo $this->Paginator->prev('< '. __('Anterior')); ?>
+                    <?php echo $this->Paginator->numbers(); ?>
+                    <?php echo $this->Paginator->next( __('Próximo') . ' >'); ?>
+                    
+                </ul>
+                <div class="paginator d-flex justify-content-end">
+                    <?php echo $this->Paginator->counter(['format' => __('Página {{page}} de {{pages}}')]) ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
